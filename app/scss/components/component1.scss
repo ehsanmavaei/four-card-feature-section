@@ -1,5 +1,156 @@
-@use '../util' as *;
-@use '../globals' as *;
-body{
+@use '../util'as *;
+@use '../globals'as *;
+
+body {
     font-family: 'Poppins', sans-serif;
+    background-color: $very-Light-Gray;
+    line-height: 1.6;
+}
+
+
+.main {
+    // border: 1px solid black;
+    width: min(100% - 3rem, 500px);
+    margin-inline: auto;
+    padding-top: 100px;
+}
+
+%h1 {
+    font-size: 1.5rem;
+    padding-bottom: 10px;
+
+    color: $very-Dark-Blue;
+
+
+}
+
+%card {
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 15px 0px;
+    padding: 1rem;
+    max-width: 400px;
+    margin-bottom: 1.4rem;
+    margin: 1.4rem auto;
+    border-top: 3px solid;
+
+    h1 {
+        color: $very-Dark-Blue;
+        font-weight: 700;
+        font-size: 1.3;
+        padding-bottom: 1rem;
+    }
+
+    p {
+        font-weight: 200;
+        color: $grayish-Blue;
+        font-size: .9rem;
+        padding-bottom: 2rem;
+
+
+
+    }
+
+    img {
+        margin-left: auto;
+        display: block;
+
+    }
+
+
+}
+
+.hero {
+    grid-area: hero;
+    text-align: center;
+    padding: 1rem;
+
+    h1:first-of-type {
+        @extend %h1;
+        font-weight: 200;
+
+    }
+
+    h1:last-of-type {
+        @extend %h1;
+        font-weight: 700;
+
+
+
+    }
+
+    p {
+        color: $grayish-Blue
+    }
+
+}
+
+.card {
+    @extend %card;
+
+
+
+}
+
+.one {
+    border-top-color: $cyan;
+    grid-area: one;
+
+}
+
+.two {
+    border-top-color: $red;
+    grid-area: two;
+
+}
+
+.three {
+    border-top-color: $orange;
+    grid-area: three;
+}
+
+.four {
+    border-top-color: $blue;
+    grid-area: four;
+}
+
+
+
+
+
+
+
+@media (min-width: 50rem) {
+
+
+
+    .main {
+        width: min(100%-2rem, 1040px);
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "hero hero hero "
+
+            "one two three"
+            ".  four     .";
+    }
+
+    .hero {
+        padding-bottom: 200px;
+        width: 520px;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 2rem !important;
+        }
+
+    }
+
+    .two {
+        transform: translateY(-130px);
+    }
+
+    .four {
+        transform: translateY(-150px);
+    }
 }
